@@ -19,3 +19,25 @@ const timer = setInterval(function() {
     document.querySelector(".countdown").innerHTML = '<div class="expired">EVENT STARTED!</div>';
   }
 }, 1000);
+
+document.getElementById('registrationForm').addEventListener('submit', function (event) {
+  const emailInput = document.getElementById('email');
+  const email = emailInput.value;
+
+
+  if (!email.endsWith('@gmail.com')) {
+    alert('Please enter a valid Gmail address (ending with @gmail.com)');
+    emailInput.focus();
+    event.preventDefault();
+    return false;
+  }
+
+
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
+
+  if (password !== confirmPassword) {
+    alert('Passwords do not match!');
+    event.preventDefault();
+  }
+});
